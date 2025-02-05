@@ -8,15 +8,28 @@ declare var alertify: any;
 export class AlertifyService {
   constructor() { }
 
-  message(message: string, messageType: MessageType, position:Position, delay:number=3) {
-    alertify.set('notifier', 'position', position);
-    alertify.set('notifier','delay', delay);
-    alertify[messageType](message);
+  //message(message: string, messageType: MessageType, position:Position, delay:number=3, dismissOther:boolean=false)
+  message(message: string, options:Partial<AlertifyOptions>){ 
+    alertify.set('notifier', 'position', options.position);
+    alertify.set('notifier','delay', options.delay);
+    alertify[options.messageType](message);
+
+    const msg =alertify[options.messageType](message);
+    if (options.dismissOther){
+      msg.dismissOthers(); 
+    }
   }
 
   dismiss(){
     alertify.dismissAll();
   }
+}
+
+export class AlertifyOptions{
+  messageType: MessageType = MessageType.Message;
+  position : Position = Position.BottomLeft;
+  delay: number = 3;
+  dismissOther: boolean = false;
 }
 
 export enum MessageType{
@@ -35,3 +48,4 @@ export enum Position{
   BottomCenter = "bottom-center",
   BottomLeft = "bottom-left" 
 }
+

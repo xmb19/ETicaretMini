@@ -17,11 +17,17 @@ throw new Error('Method not implemented.');
 }
   constructor(private alertifyService: AlertifyService){}
   ngOnInit(): void {
-    this.alertifyService.message("Merhaba" ,MessageType.Error, Position.BottomLeft, 5);
+
   }
 
   alertMessage(){
-    this.alertifyService.message("Merhaba" ,MessageType.Error, Position.BottomLeft, 5);
+    
+    this.alertifyService.message("Merhaba" ,{
+      messageType: MessageType.Success,
+      delay: 5,
+      dismissOther: true,
+      position : Position.TopCenter
+    } );
   }
 
   d(){
