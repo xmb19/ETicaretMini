@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  
   title = 'ETicaretClient';
+  // formattedNumber: string = ''; // Kullanıcının girdiği sayıyı burada saklayacağız
+
+  // onFormattedValueChange(value: string): void {
+  //   this.formattedNumber = value; // Geçerli sayı değerini alıyoruz
+  // }
 }

@@ -9,11 +9,11 @@ import { ComponentsModule } from './components/components.module';
   declarations: [],
   imports: [
     CommonModule,
-    LayoutModule
+    LayoutModule,
   ],
   exports: [
     LayoutModule,
-    ComponentsModule
+    ComponentsModule,
   ]
 })
 export class AdminModule { }
